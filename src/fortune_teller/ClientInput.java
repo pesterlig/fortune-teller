@@ -17,7 +17,7 @@ public class ClientInput {
 
 		System.out.println("Welcome to Madame Sosostris' Psychic Hub!");
 		System.out.println("To git yer fortune, enter the FIRST name "
-				+ "chosen by your soul for your physical incarnation in this plane: ");
+				+ "chosen by your - soul for your physical incarnation in this plane: ");
 		firstName = input.nextLine();
 		System.out.println("And now, enter your LAST name: ");
 		lastName = input.nextLine();
