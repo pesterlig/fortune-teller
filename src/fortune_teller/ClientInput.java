@@ -12,6 +12,7 @@ public class ClientInput {
 
 		String firstName;
 		String lastName;
+		String ageStr;
 		int age;
 		int birthMonth;
 		String favoriteColor;
@@ -28,7 +29,9 @@ public class ClientInput {
 		lastName = input.nextLine();
 
 		System.out.println("Please enter your current temporal age in years: ");
-		age = input.nextInt();
+		ageStr = input.nextLine();
+		checkForQuit(ageStr);
+		age = Integer.parseInt(ageStr);
 		if (age % 2 == 0) {
 			yearsToRetirement = 35;
 		} else {
@@ -119,4 +122,12 @@ public class ClientInput {
 
 	}
 
+	public static void checkForQuit(String userInput) {
+		if (userInput.contains("quit")) {
+			System.out.println("Nobody likes a quitter...");
+			System.exit(0);
+			
+		}
+
+	}
 }
