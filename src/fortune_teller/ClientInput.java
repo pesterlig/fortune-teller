@@ -7,26 +7,38 @@ public class ClientInput {
 
 	public static void main(String[] args) {
 
+		// Declare java util methods
+
 		Scanner input = new Scanner(System.in);
 		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+
+		// Declare variables
 
 		String firstName;
 		String lastName;
 		String ageStr;
 		int age;
+		String birthStr;
 		int birthMonth;
 		String favoriteColor;
 		int numberSiblings;
+		String siblingStr;
 		int yearsToRetirement;
 		double bankBalance;
 		String location;
 		String vehicle;
 
+		// Intro, ask for input
+
 		System.out.println("Welcome to Madame Sosostris' Psychic Hub!");
 		System.out.println("To git yer fortune, enter your FIRST name: ");
 		firstName = input.nextLine();
+		checkForQuit(firstName);
 		System.out.println("Enter your LAST name: ");
 		lastName = input.nextLine();
+		checkForQuit(lastName);
+
+		// Retirement Years
 
 		System.out.println("Please enter your current temporal age in years: ");
 		ageStr = input.nextLine();
@@ -38,8 +50,13 @@ public class ClientInput {
 			yearsToRetirement = 5;
 		}
 
+		// Vacation Home Location
+
 		System.out.println("Please enter your birth month as an integer: ");
-		birthMonth = input.nextInt();
+		birthStr = input.nextLine();
+		checkForQuit(birthStr);
+		birthMonth = Integer.parseInt(birthStr);
+
 		switch (birthMonth) {
 		case 1:
 		case 2:
@@ -63,10 +80,15 @@ public class ClientInput {
 			bankBalance = 0.00;
 		}
 
+		// Mode of Transportation
+
 		System.out.println("WHAT is your favorite ROYGBIV color \n" + "from the spectrum of visible light "
 				+ "resplendently reflected by my sacred crystal? ");
 		System.out.println("(If you need help with ROYGBIV, type Help instead!) ");
-		favoriteColor = input.next().toLowerCase();
+		favoriteColor = (input.nextLine()).toLowerCase();
+		checkForQuit(favoriteColor);
+
+		// Help
 
 		if (favoriteColor.contains("help")) {
 			System.out.println("R = red");
@@ -78,7 +100,7 @@ public class ClientInput {
 			System.out.println("V = violet");
 			System.out.println(" ");
 			System.out.println("WHAT is your favorite ROYGBIV color?");
-			favoriteColor = input.next().toLowerCase();
+			favoriteColor = input.nextLine().toLowerCase();
 		}
 
 		if (favoriteColor.contains("red")) {
@@ -96,11 +118,15 @@ public class ClientInput {
 		} else if (favoriteColor.contains("violet")) {
 			vehicle = "magic carpet";
 		} else {
-			vehicle = "no vehicle";
+			vehicle = "walking everywhere, obstinately";
 		}
 
+		// Bank Balance
+
 		System.out.println("Enter the number of souls (siblings) who share your earthly parents:  ");
-		numberSiblings = input.nextInt();
+		siblingStr = input.nextLine();
+		checkForQuit(siblingStr);
+		numberSiblings = Integer.parseInt(siblingStr);
 		System.out.println(" ");
 		if (numberSiblings == 0) {
 			location = "a Buddhist monastery";
@@ -116,17 +142,19 @@ public class ClientInput {
 			location = "a Martian colony with a food shortage";
 		}
 
+		// Display Fortune
+
 		System.out.println(firstName + " " + lastName + " will retire in " + yearsToRetirement + " years with "
 				+ formatter.format(bankBalance) + " in the bank, live in a vacation home in " + location
 				+ ", and travel by " + vehicle + ". ");
-
 	}
 
+	// Stretch 1 - checkForQuit Method
+
 	public static void checkForQuit(String userInput) {
-		if (userInput.contains("quit")) {
+		if (userInput.equalsIgnoreCase("quit")) {
 			System.out.println("Nobody likes a quitter...");
 			System.exit(0);
-			
 		}
 
 	}
