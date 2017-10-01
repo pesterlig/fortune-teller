@@ -90,7 +90,7 @@ public class ClientInput {
 
 		// Help
 
-		if (favoriteColor.contains("help")) {
+		while (favoriteColor.contains("help")) {
 			System.out.println("R = red");
 			System.out.println("O = orange");
 			System.out.println("Y = yellow");
