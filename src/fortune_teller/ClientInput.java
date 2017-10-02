@@ -7,55 +7,33 @@ public class ClientInput {
 
 	public static void main(String[] args) {
 
-		// Declare java util methods
-
 		Scanner input = new Scanner(System.in);
 		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
-		// Declare variables
-
-		String firstName;
-		String lastName;
-		String ageStr;
-		int age;
-		String birthStr;
-		int birthMonth;
-		String favoriteColor;
-		int numberSiblings;
-		String siblingStr;
-		int yearsToRetirement;
-		double bankBalance;
-		String location;
-		String vehicle;
-
-		// Intro, ask for input
-
 		System.out.println("Welcome to Madame Sosostris' Psychic Hub!");
 		System.out.println("To git yer fortune, enter your FIRST name: ");
-		firstName = input.nextLine();
+		String firstName = input.nextLine();
 		checkForQuit(firstName);
 		System.out.println("Enter your LAST name: ");
-		lastName = input.nextLine();
+		String lastName = input.nextLine();
 		checkForQuit(lastName);
 
-		// Retirement Years
-
 		System.out.println("Please enter your current temporal age in years: ");
-		ageStr = input.nextLine();
+		String ageStr = input.nextLine();
 		checkForQuit(ageStr);
-		age = Integer.parseInt(ageStr);
+		int age = Integer.parseInt(ageStr);
+		int yearsToRetirement;
 		if (age % 2 == 0) {
 			yearsToRetirement = 35;
 		} else {
 			yearsToRetirement = 5;
 		}
 
-		// Vacation Home Location
-
 		System.out.println("Please enter your birth month as an integer: ");
-		birthStr = input.nextLine();
+		String birthStr = input.nextLine();
 		checkForQuit(birthStr);
-		birthMonth = Integer.parseInt(birthStr);
+		int birthMonth = Integer.parseInt(birthStr);
+		double bankBalance;
 
 		switch (birthMonth) {
 		case 1:
@@ -80,13 +58,12 @@ public class ClientInput {
 			bankBalance = 0.00;
 		}
 
-		// Mode of Transportation
-
 		System.out.println("WHAT is your favorite ROYGBIV color \n" + "from the spectrum of visible light "
 				+ "resplendently reflected by my sacred crystal? ");
 		System.out.println("(If you need help with ROYGBIV, type Help instead!) ");
-		favoriteColor = (input.nextLine()).toLowerCase();
+		String favoriteColor = (input.nextLine()).toLowerCase();
 		checkForQuit(favoriteColor);
+		String vehicle;
 
 		// Help
 
@@ -121,12 +98,11 @@ public class ClientInput {
 			vehicle = "walking everywhere, obstinately";
 		}
 
-		// Bank Balance
-
 		System.out.println("Enter the number of souls (siblings) who share your earthly parents:  ");
-		siblingStr = input.nextLine();
+		String siblingStr = input.nextLine();
 		checkForQuit(siblingStr);
-		numberSiblings = Integer.parseInt(siblingStr);
+		int numberSiblings = Integer.parseInt(siblingStr);
+		String location;
 		System.out.println(" ");
 		if (numberSiblings == 0) {
 			location = "a Buddhist monastery";
